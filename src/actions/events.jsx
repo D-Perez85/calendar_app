@@ -21,5 +21,10 @@ export const eventUpdated = ( event ) => ({
 });
 
 
+export const eventDeleted = () => ({ 
+    type: types.eventDeleted 
+});
+
+
 
 
