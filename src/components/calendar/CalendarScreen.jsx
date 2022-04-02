@@ -12,6 +12,7 @@ import { AddNewFab } from "../ui/AddNewFab";
 import moment from "moment";
 import "moment/locale/es";
 import { uiOpenModal } from "../../actions/ui";
+import { eventSetActive } from "../../actions/events";
 
 
 moment.locale("es");
@@ -42,7 +43,10 @@ const CalendarScreen = () => {
   };
 
   const onSelectEvent = (e) => {
-    console.log(e);
+    dispatch(eventSetActive(e))
+    dispatch(uiOpenModal())
+
+
   };
 
   const onViewChange = (e) => {
