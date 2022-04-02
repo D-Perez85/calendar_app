@@ -1,7 +1,9 @@
+import AppRouter from "./routers/AppRouter";
+
 function App() {
   return (
     <div>
-      <h3>Calendar APP</h3>
+    <AppRouter/>
     </div>
   );
 }
