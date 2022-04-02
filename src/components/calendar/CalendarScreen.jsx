@@ -1,16 +1,17 @@
 import React,{useState} from "react";
+import { useDispatch } from "react-redux";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { messages } from "../../helpers/calendar-messages-es";
 
 import Navbar from "../ui/Navbar";
-import { messages } from "../../helpers/calendar-messages-es";
 import { CalendarEvent } from "./CalendarEvent";
 import CalendarModal from "./CalendarModal";
+import { AddNewFab } from "../ui/AddNewFab";
 
 import moment from "moment";
 import "moment/locale/es";
 import { uiOpenModal } from "../../actions/ui";
-import { useDispatch } from "react-redux";
 
 
 moment.locale("es");
@@ -81,7 +82,8 @@ const CalendarScreen = () => {
       />
 
       <CalendarModal/>
-
+      
+      <AddNewFab/>
     </div>
   );
 };
