@@ -2,6 +2,7 @@ import React from 'react'
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import Navbar from '../ui/Navbar';
 import { messages } from '../../helpers/calendar-messages-es';
+import { CalendarEvent } from './CalendarEvent';
 
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -10,12 +11,17 @@ moment.locale('es');
 
 
 const localizer = momentLocalizer(moment);
+
 const events  =[{
   title: 'Christmas',
   start: moment().toDate(),
   end: moment().add(2, 'hours').toDate(),
   bgcolor: '#ffffff',
-  notes: 'TtitleTest'
+  notes: 'Ttitle Test',
+  user:{
+    _id: '123',
+    name: 'Damian'
+  }
 }]
 const CalendarScreen = () => {
 
@@ -26,7 +32,7 @@ const CalendarScreen = () => {
         borderRadius: '0px',
         opacity: 0.8,
         display: 'block',
-        color: 'white'
+        color: 'white'  
     }
 
 
@@ -43,7 +49,10 @@ const CalendarScreen = () => {
                 startAccessor="start"
                 endAccessor="end" 
                 messages={messages}   
-                eventPropGetter={ eventStyleGetter }        
+                eventPropGetter={ eventStyleGetter }     
+                components={{
+                  event: CalendarEvent
+              }}   
             />
 
     </div>
