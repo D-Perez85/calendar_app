@@ -9,6 +9,8 @@ import CalendarModal from "./CalendarModal";
 
 import moment from "moment";
 import "moment/locale/es";
+import { uiOpenModal } from "../../actions/ui";
+import { useDispatch } from "react-redux";
 
 
 moment.locale("es");
@@ -29,10 +31,13 @@ const events = [
 ];
 
 const CalendarScreen = () => {
+  
   const [lastView, setLastView] = useState( localStorage.getItem('lastView') || 'month' );
+
+  const dispatch = useDispatch(); 
   
   const onDoubleClick = (e) => {
-    console.log(e);
+    dispatch(uiOpenModal())
   };
 
   const onSelectEvent = (e) => {
@@ -76,6 +81,7 @@ const CalendarScreen = () => {
       />
 
       <CalendarModal/>
+
     </div>
   );
 };
