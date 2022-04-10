@@ -1,7 +1,7 @@
 import { types } from "../types/types";
 
 const initialState = {
-    checking: true
+    checking: true,
 }
 
 
@@ -11,8 +11,8 @@ switch (action.type) {
     case types.authLogin: 
     return{
         ...state,
-        checking: false,
-        ...action.payload
+        ...action.payload,
+        checking: false
     }
 
     case types.authCheckingFinish: 

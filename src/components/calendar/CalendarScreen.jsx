@@ -26,8 +26,6 @@ const CalendarScreen = () => {
   const dispatch = useDispatch(); 
   const {events, activeEvent} = useSelector(state => state.calendar); 
 
-  console.log(events);
-
   const onDoubleClick = (e) => {
     dispatch(uiOpenModal())
   };

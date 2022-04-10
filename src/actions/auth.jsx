@@ -8,7 +8,6 @@ export const startLogin = ( email, password ) => {
 
         const resp = await fetchSinToken( 'auth', { email, password }, 'POST' );
         const body = await resp.json();
-        console.log(body);
 
         if( body.ok ) {
             localStorage.setItem('token', body.token );
@@ -25,10 +24,6 @@ export const startLogin = ( email, password ) => {
 }
 
 
-const login = ( user ) => ({
-    type: types.authLogin,
-    payload: user
-});
 
 
 export const startRegister = ( email, password, name ) => {
@@ -55,11 +50,10 @@ export const startRegister = ( email, password, name ) => {
 
 export const startChecking = () => {
     return async(dispatch) => {
-
-        const resp = await fetchConToken( 'auth/renew' );
-        const body = await resp.json();
-        console.log(body);
         
+        const resp = await fetchConToken( 'auth/revalidate' );
+        const body = await resp.json();
+
         if( body.ok ) {
             localStorage.setItem('token', body.token );
             localStorage.setItem('token-init-date', new Date().getTime() );
@@ -75,4 +69,8 @@ export const startChecking = () => {
 }
 
 const checkingFinish = () => ({ type: types.authCheckingFinish });
+const login = ( user ) => ({
+    type: types.authLogin,
+    payload: user
+});
 
