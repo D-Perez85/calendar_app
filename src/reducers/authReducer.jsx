@@ -20,6 +20,10 @@ switch (action.type) {
         ...state,
         checking: false
     }
+    case types.authLogout:
+        return {
+            checking: false
+        }
     default:
         return state;
 }
