@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 import { useDispatch, useSelector } from "react-redux";
 import { uiCloseModal } from "../../actions/ui";
-import { eventClearActiveEvent, eventStartAddNew, eventUpdated } from "../../actions/events";
+import { eventClearActiveEvent, eventStartAddNew, eventStartUpdate } from "../../actions/events";
 
 const customStyles = {
   content: {
@@ -100,7 +100,7 @@ const CalendarModal = () => {
     }
 
     if ( activeEvent ) {
-      dispatch( eventUpdated( formValues ) )
+      dispatch( eventStartUpdate( formValues ) )
   } else {
       dispatch( eventStartAddNew(formValues) );
   }
@@ -114,7 +114,6 @@ const CalendarModal = () => {
       isOpen={modalOpen}
       onRequestClose={closeModal}
       style={customStyles}
-      closeTimeoutMS={200}
       className="modal"
       overlayClassName="modal-fondo"
     >
